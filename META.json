@@ -7,7 +7,7 @@
       "version" : 1.4,
       "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
    },
-   "version" : "0.093360",
+   "version" : "0.093370",
    "name" : "Catalyst-TraitFor-Controller-DoesExtPaging",
    "author" : [
       "Arthur Axel \"fREW\" Schmidt <frioux+cpan@gmail.com>"
@@ -23,8 +23,8 @@
       "Test::Deep" : "0"
    },
    "requires" : {
-      "Catalyst::Controller::Role::DBIC::DoesPaging" : "0.093200",
-      "Catalyst::Runtime" : "5.8"
+      "Catalyst::Runtime" : "5.8",
+      "Catalyst::TraitFor::Controller::DBIC::DoesPaging" : "0.093200"
    },
    "abstract" : "Paginate DBIx::Class::ResultSets for ExtJS consumption"
 }

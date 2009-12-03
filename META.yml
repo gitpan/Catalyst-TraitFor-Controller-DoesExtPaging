@@ -17,8 +17,8 @@ meta-spec:
   version: 1.4
 name: Catalyst-TraitFor-Controller-DoesExtPaging
 requires:
-  Catalyst::Controller::Role::DBIC::DoesPaging: 0.093200
   Catalyst::Runtime: 5.8
+  Catalyst::TraitFor::Controller::DBIC::DoesPaging: 0.093200
 resources:
   repository: http://github.com/frioux/Catalyst-TraitFor-Controller-DoesExtPaging
-version: 0.093360
+version: 0.093370

@@ -1,5 +1,5 @@
 package TestApp::Schema;
-our $VERSION = '0.093360';
+our $VERSION = '0.093370';
 use parent 'DBIx::Class::Schema';
 
 __PACKAGE__->load_namespaces();

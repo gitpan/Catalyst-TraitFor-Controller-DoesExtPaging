@@ -11,7 +11,7 @@ WriteMakefile(
   NAME      => 'Catalyst::TraitFor::Controller::DoesExtPaging',
   AUTHOR    => "Arthur\ Axel\ \"fREW\"\ Schmidt\ \<frioux\+cpan\@gmail\.com\>",
   ABSTRACT  => "Paginate\ DBIx\:\:Class\:\:ResultSets\ for\ ExtJS\ consumption",
-  VERSION   => '0.093360',
+  VERSION   => '0.093370',
   EXE_FILES => [ qw() ],
   (eval { ExtUtils::MakeMaker->VERSION(6.31) } ? (LICENSE => 'perl') : ()),
   PREREQ_PM    => {
@@ -24,8 +24,8 @@ WriteMakefile(
     "Catalyst::Test" => '0',
     "Test::Deep" => '0',
   )),
-    "Catalyst::Controller::Role::DBIC::DoesPaging" => '0.093200',
     "Catalyst::Runtime" => '5.8',
+    "Catalyst::TraitFor::Controller::DBIC::DoesPaging" => '0.093200',
   },
 (eval { ExtUtils::MakeMaker->VERSION(6.55_01) } ? (
   BUILD_REQUIRES    => {
