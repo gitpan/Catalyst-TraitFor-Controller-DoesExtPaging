@@ -4,40 +4,72 @@ use warnings;
 
 
 
-use ExtUtils::MakeMaker;
+use ExtUtils::MakeMaker 6.30;
 
-WriteMakefile(
-  DISTNAME  => 'Catalyst-TraitFor-Controller-DoesExtPaging',
-  NAME      => 'Catalyst::TraitFor::Controller::DoesExtPaging',
-  AUTHOR    => "Arthur\ Axel\ \"fREW\"\ Schmidt\ \<frioux\+cpan\@gmail\.com\>",
-  ABSTRACT  => "Paginate\ DBIx\:\:Class\:\:ResultSets\ for\ ExtJS\ consumption",
-  VERSION   => '0.093370',
-  EXE_FILES => [ qw() ],
-  (eval { ExtUtils::MakeMaker->VERSION(6.31) } ? (LICENSE => 'perl') : ()),
-  PREREQ_PM    => {
-  (eval { ExtUtils::MakeMaker->VERSION(6.55_01) } ? () : (
-    "SQL::Translator" => '0.1103',
-    "FindBin" => '0',
-    "Catalyst::Model::DBIC::Schema" => '0.29',
-    "Test::More" => '0.92',
-    "Catalyst::View::JSON" => '0.26',
-    "Catalyst::Test" => '0',
-    "Test::Deep" => '0',
-  )),
-    "Catalyst::Runtime" => '5.8',
-    "Catalyst::TraitFor::Controller::DBIC::DoesPaging" => '0.093200',
+
+
+my %WriteMakefileArgs = (
+  "ABSTRACT" => "Paginate DBIx::Class::ResultSets for ExtJS consumption",
+  "AUTHOR" => "Arthur Axel \"fREW\" Schmidt <frioux+cpan\@gmail.com>",
+  "BUILD_REQUIRES" => {},
+  "CONFIGURE_REQUIRES" => {
+    "ExtUtils::MakeMaker" => "6.30"
   },
-(eval { ExtUtils::MakeMaker->VERSION(6.55_01) } ? (
-  BUILD_REQUIRES    => {
-    "SQL::Translator" => '0.1103',
-    "FindBin" => '0',
-    "Catalyst::Model::DBIC::Schema" => '0.29',
-    "Test::More" => '0.92',
-    "Catalyst::View::JSON" => '0.26',
-    "Catalyst::Test" => '0',
-    "Test::Deep" => '0',
+  "DISTNAME" => "Catalyst-TraitFor-Controller-DoesExtPaging",
+  "EXE_FILES" => [],
+  "LICENSE" => "perl",
+  "NAME" => "Catalyst::TraitFor::Controller::DoesExtPaging",
+  "PREREQ_PM" => {
+    "Catalyst::Runtime" => "5.8",
+    "Catalyst::TraitFor::Controller::DBIC::DoesPaging" => "0.093200",
+    "Web::Util::ExtPaging" => "0.001000"
   },
-) : ()),
-  test => {TESTS => 't/*.t'}
+  "TEST_REQUIRES" => {
+    "Catalyst::Model::DBIC::Schema" => "0.29",
+    "Catalyst::Test" => 0,
+    "Catalyst::View::JSON" => "0.26",
+    "FindBin" => 0,
+    "SQL::Translator" => "0.1103",
+    "Test::Deep" => 0,
+    "Test::More" => "0.92"
+  },
+  "VERSION" => "1.000000",
+  "test" => {
+    "TESTS" => "t/*.t"
+  }
 );
+
+
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.63_03) } ) {
+  my $tr = delete $WriteMakefileArgs{TEST_REQUIRES};
+  my $br = $WriteMakefileArgs{BUILD_REQUIRES};
+  for my $mod ( keys %$tr ) {
+    if ( exists $br->{$mod} ) {
+      $br->{$mod} = $tr->{$mod} if $tr->{$mod} > $br->{$mod};
+    }
+    else {
+      $br->{$mod} = $tr->{$mod};
+    }
+  }
+}
+
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
+  my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
+  my $pp = $WriteMakefileArgs{PREREQ_PM};
+  for my $mod ( keys %$br ) {
+    if ( exists $pp->{$mod} ) {
+      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod};
+    }
+    else {
+      $pp->{$mod} = $br->{$mod};
+    }
+  }
+}
+
+delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
+  unless eval { ExtUtils::MakeMaker->VERSION(6.52) };
+
+WriteMakefile(%WriteMakefileArgs);
+
+
 

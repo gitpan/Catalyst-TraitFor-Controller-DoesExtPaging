@@ -1,31 +1,59 @@
 {
-   "resources" : {
-      "repository" : "http://github.com/frioux/Catalyst-TraitFor-Controller-DoesExtPaging"
-   },
-   "generated_by" : "Dist::Zilla version 1.093360",
-   "meta-spec" : {
-      "version" : 1.4,
-      "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
-   },
-   "version" : "0.093370",
-   "name" : "Catalyst-TraitFor-Controller-DoesExtPaging",
+   "abstract" : "Paginate DBIx::Class::ResultSets for ExtJS consumption",
    "author" : [
       "Arthur Axel \"fREW\" Schmidt <frioux+cpan@gmail.com>"
    ],
-   "license" : "perl",
-   "build_requires" : {
-      "SQL::Translator" : "0.1103",
-      "FindBin" : "0",
-      "Catalyst::Model::DBIC::Schema" : "0.29",
-      "Test::More" : "0.92",
-      "Catalyst::View::JSON" : "0.26",
-      "Catalyst::Test" : "0",
-      "Test::Deep" : "0"
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.120921",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
    },
-   "requires" : {
-      "Catalyst::Runtime" : "5.8",
-      "Catalyst::TraitFor::Controller::DBIC::DoesPaging" : "0.093200"
+   "name" : "Catalyst-TraitFor-Controller-DoesExtPaging",
+   "prereqs" : {
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.30"
+         }
+      },
+      "develop" : {
+         "requires" : {
+            "Test::Pod" : "1.41"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Catalyst::Runtime" : "5.8",
+            "Catalyst::TraitFor::Controller::DBIC::DoesPaging" : "0.093200",
+            "Web::Util::ExtPaging" : "0.001000"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "Catalyst::Model::DBIC::Schema" : "0.29",
+            "Catalyst::Test" : "0",
+            "Catalyst::View::JSON" : "0.26",
+            "FindBin" : "0",
+            "SQL::Translator" : "0.1103",
+            "Test::Deep" : "0",
+            "Test::More" : "0.92"
+         }
+      }
    },
-   "abstract" : "Paginate DBIx::Class::ResultSets for ExtJS consumption"
+   "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/frioux/Catalyst-TraitFor-Controller-DoesExtPaging/issues"
+      },
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/frioux/Catalyst-TraitFor-Controller-DoesExtPaging.git",
+         "web" : "http://github.com/frioux/Catalyst-TraitFor-Controller-DoesExtPaging"
+      }
+   },
+   "version" : "1.000000"
 }
 

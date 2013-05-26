@@ -1,7 +1,10 @@
 package Catalyst::TraitFor::Controller::DoesExtPaging;
-our $VERSION = '0.093370';
+{
+  $Catalyst::TraitFor::Controller::DoesExtPaging::VERSION = '1.000000';
+}
 
 use Moose::Role;
+use Web::Util::ExtPaging ':all' => { -prefix => '_' };
 
 # ABSTRACT: Paginate DBIx::Class::ResultSets for ExtJS consumption
 
@@ -19,32 +22,25 @@ has total_property => (
 
 sub ext_paginate {
    my $self      = shift;
-   my $resultset = shift;
-   my $method    = shift || 'TO_JSON';
-   return $self->ext_parcel(
-      [map $_->$method, $resultset->all],
-      $resultset->is_paged
-         ? ($resultset->pager->total_entries)
-         : (),
-   );
+   return _ext_paginate(@_, {
+      root => $self->root,
+      total_property => $self->total_property,
+   });
 }
 
 sub ext_parcel {
    my $self   = shift;
-   my $values = shift;
-   my $total  = shift || scalar @{$values};
 
-   return {
-      $self->root           => $values,
-      $self->total_property => $total,
-   };
+   return _ext_parcel(@_, {
+      root => $self->root,
+      total_property => $self->total_property,
+   });
 }
 
 1;
 
-
-
 __END__
+
 =pod
 
 =head1 NAME
@@ -53,7 +49,7 @@ Catalyst::TraitFor::Controller::DoesExtPaging - Paginate DBIx::Class::ResultSets
 
 =head1 VERSION
 
-version 0.093370
+version 1.000000
 
 =head1 SYNOPSIS
 
@@ -183,14 +179,13 @@ this module.
 
 =head1 AUTHOR
 
-  Arthur Axel "fREW" Schmidt <frioux+cpan@gmail.com>
+Arthur Axel "fREW" Schmidt <frioux+cpan@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Arthur Axel "fREW" Schmidt.
+This software is copyright (c) 2013 by Arthur Axel "fREW" Schmidt.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

@@ -1,5 +1,4 @@
 package TestApp::Controller::Root;
-our $VERSION = '0.093370';
 
 use Moose;
 BEGIN { extends 'Catalyst::Controller' };
