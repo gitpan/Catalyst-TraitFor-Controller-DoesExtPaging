@@ -3,7 +3,7 @@ NAME
     DBIx::Class::ResultSets for ExtJS consumption
 
 VERSION
-    version 1.000000
+    version 1.000001
 
 SYNOPSIS
       package MyApp::Controller;

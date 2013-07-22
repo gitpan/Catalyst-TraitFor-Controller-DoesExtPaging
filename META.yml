@@ -7,13 +7,13 @@ build_requires:
   Catalyst::Test: 0
   Catalyst::View::JSON: 0.26
   FindBin: 0
-  SQL::Translator: 0.1103
+  SQL::Translator: 0.11016
   Test::Deep: 0
   Test::More: 0.92
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.120921'
+generated_by: 'Dist::Zilla version 4.300028, CPAN::Meta::Converter version 2.120921'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -26,4 +26,4 @@ requires:
 resources:
   bugtracker: https://github.com/frioux/Catalyst-TraitFor-Controller-DoesExtPaging/issues
   repository: git://github.com/frioux/Catalyst-TraitFor-Controller-DoesExtPaging.git
-version: 1.000000
+version: 1.000001

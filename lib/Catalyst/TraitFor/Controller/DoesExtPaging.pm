@@ -1,6 +1,6 @@
 package Catalyst::TraitFor::Controller::DoesExtPaging;
 {
-  $Catalyst::TraitFor::Controller::DoesExtPaging::VERSION = '1.000000';
+  $Catalyst::TraitFor::Controller::DoesExtPaging::VERSION = '1.000001';
 }
 
 use Moose::Role;
@@ -49,7 +49,7 @@ Catalyst::TraitFor::Controller::DoesExtPaging - Paginate DBIx::Class::ResultSets
 
 =head1 VERSION
 
-version 1.000000
+version 1.000001
 
 =head1 SYNOPSIS
 
